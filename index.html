@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Rafia Minhaj - Full Stack Developer & AI Builder. CSE Undergraduate at CIT Ranchi. Specialized in Java, Spring Boot, Python, and AI automation.">
+    <meta name="author" content="Rafia Minhaj">
+    <title>Rafia Minhaj | Full Stack Developer & AI Builder</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Style Sheets -->
+    <link rel="stylesheet" href="style.css?v=1.1">
+</head>
+<body>
+    <!-- Background glow elements -->
+    <div class="ambient-glow bg-glow-1"></div>
+    <div class="ambient-glow bg-glow-2"></div>
+
+    <!-- Navigation Header -->
+    <header class="main-header" id="header">
+        <div class="nav-container">
+            <a href="#" class="logo" id="nav-logo">
+                <span class="logo-accent">&lt;</span>Rafia<span class="logo-accent"> /&gt;</span>
+            </a>
+            
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="#hero" class="nav-link active" id="link-hero">Home</a></li>
+                    <li><a href="#about" class="nav-link" id="link-about">About</a></li>
+                    <li><a href="#experience" class="nav-link" id="link-experience">Experience</a></li>
+                    <li><a href="#skills" class="nav-link" id="link-skills">Skills</a></li>
+                    <li><a href="#projects" class="nav-link" id="link-projects">Projects</a></li>
+                    <li><a href="#certifications" class="nav-link" id="link-certifications">Certifications</a></li>
+                    <li><a href="#education" class="nav-link" id="link-education">Education</a></li>
+                    <li><a href="#contact" class="nav-link" id="link-contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" role="button" tabindex="0">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section" id="hero">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <span class="hero-subtitle scroll-reveal">Welcome to my Portfolio</span>
+                    <h1 class="hero-title scroll-reveal">
+                        Hi, I'm <span class="gradient-text">Rafia Minhaj</span>
+                    </h1>
+                    <h2 class="hero-typing scroll-reveal">
+                        I am a <span class="typed-text" id="typed-text">Full Stack Developer</span><span class="cursor">&nbsp;</span>
+                    </h2>
+                    <p class="hero-description scroll-reveal">
+                        CSE undergraduate at CIT Ranchi (Class of 2026), active open-source contributor, and AI builder. Specializing in high-performance Java/Spring Boot backend logic, Python-driven automation, and responsive frontend systems.
+                    </p>
+                    <div class="hero-actions scroll-reveal">
+                        <a href="#projects" class="btn btn-primary" id="hero-btn-projects">View Projects</a>
+                        <a href="#contact" class="btn btn-secondary" id="hero-btn-contact">Contact Me</a>
+                    </div>
+                </div>
+                <div class="hero-image scroll-reveal">
+                    <div class="image-wrapper">
+                        <div class="code-visual">
+                            <div class="window-header">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                                <span class="window-title">nexaflow.py</span>
+                            </div>
+                            <pre class="code-editor"><code><span class="keyword">class</span> <span class="class-name">NexaFlowAI</span>:
+    <span class="keyword">def</span> <span class="method">__init__</span>(self):
+        self.creator = <span class="string">"Rafia Minhaj"</span>
+        self.focus = [<span class="string">"AI Automation"</span>, <span class="string">"Backend Eng"</span>]
+        
+    <span class="keyword">def</span> <span class="method">detect_defect</span>(self, frame):
+        <span class="keyword">return</span> self.yolov8_model.<span class="method">predict</span>(frame)
+        
+    <span class="keyword">def</span> <span class="method">auto_trigger_workflow</span>(self, intent):
+        <span class="keyword">if</span> intent == <span class="string">"stripe_refund"</span>:
+            <span class="keyword">return</span> self.stripe.<span class="method">refund</span>()</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section" id="about">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <span class="section-subtitle">Get To Know Me</span>
+                    <h2 class="section-title">About Me</h2>
+                    <div class="section-underline"></div>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-info scroll-reveal">
+                        <h3>Bridging artificial intelligence with scalable business systems.</h3>
+                        <p>
+                            I am a pre-final year Computer Science & Engineering student at Cambridge Institute of Technology (CIT), Ranchi. I love translating complex algorithmic pipelines (like YOLOv8 and Retrieval-Augmented Generation) into enterprise-ready web platforms.
+                        </p>
+                        <p>
+                            As an open-source enthusiast, I achieved a **Global Rank of #547 (Top 2%) in GSSoC 2026** and have actively contributed to major repositories. I thrive on solving concurrency challenges, securing web portals with enterprise JWT, and automating client workflows.
+                        </p>
+                        <div class="about-cards">
+                            <div class="about-card">
+                                <i class="fa-solid fa-graduation-cap card-icon"></i>
+                                <h4>Education</h4>
+                                <p>B.Tech CSE @ CIT (2026)</p>
+                            </div>
+                            <div class="about-card">
+                                <i class="fa-solid fa-code-branch card-icon"></i>
+                                <h4>Open Source</h4>
+                                <p>GSSoC '26 (Global #547)</p>
+                            </div>
+                            <div class="about-card">
+                                <i class="fa-solid fa-certificate card-icon"></i>
+                                <h4>Certifications</h4>
+                                <p>36+ Azure Badges</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="experience-section" id="experience">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <span class="section-subtitle">My Journey</span>
+                    <h2 class="section-title">Experience & Contributions</h2>
+                    <div class="section-underline"></div>
+                </div>
+
+                <div class="timeline">
+                    <!-- InAmigos Foundation -->
+                    <div class="timeline-item scroll-reveal">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Aug 2026 - Present</div>
+                        <div class="timeline-content">
+                            <h3>Artificial Intelligence (AI) Intern</h3>
+                            <span class="timeline-subtitle">InAmigos Foundation (Remote)</span>
+                            <p>Orchestrating autonomous AI workflows and multi-agent pipelines. Building FastAPI-based webhook integrations with Google Gemini models to automate leads capturing and CRM updates.</p>
+                        </div>
+                    </div>
+
+                    <!-- GFG Campus Mantri -->
+                    <div class="timeline-item scroll-reveal">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Jan 2026 - Present</div>
+                        <div class="timeline-content">
+                            <h3>Campus Mantri</h3>
+                            <span class="timeline-subtitle">GeeksforGeeks @ CIT Ranchi</span>
+                            <p>Official Campus Representative engaging a community of over 200 students. Organized coding bootcamps, technical workshops, and promoted DSA and open-source learning among engineering undergraduates.</p>
+                        </div>
+                    </div>
+
+                    <!-- GSSoC 2026 -->
+                    <div class="timeline-item scroll-reveal">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2026</div>
+                        <div class="timeline-content">
+                            <h3>Open Source Contributor (Global Rank #547)</h3>
+                            <span class="timeline-subtitle">GirlScript Summer of Code (GSSoC 2026)</span>
+                            <p>Active contributor to open-source software repositories, resolving GitHub issues, optimizing package dependencies, and collaborating with developers on multiple full-stack templates.</p>
+                        </div>
+                    </div>
+
+                    <!-- Elite Coders -->
+                    <div class="timeline-item scroll-reveal">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Jan 2026</div>
+                        <div class="timeline-content">
+                            <h3>Open Source Contributor</h3>
+                            <span class="timeline-subtitle">Elite Coders (ECWOC)</span>
+                            <p>Collaborated on open-source web technologies. Merged pull requests, resolved routing bugs, and optimized codebase documentation for developer onboardings.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="skills-section" id="skills">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <span class="section-subtitle">My Expertise</span>
+                    <h2 class="section-title">Core Skills</h2>
+                    <div class="section-underline"></div>
+                </div>
+
+                <div class="skills-grid">
+                    <!-- Java -->
+                    <div class="skill-card scroll-reveal" data-rating="10">
+                        <div class="skill-icon-wrapper java-color">
+                            <i class="fa-brands fa-java"></i>
+                        </div>
+                        <div class="skill-info">
+                            <div class="skill-header">
+                                <h3>Java & Spring Boot</h3>
+                                <span class="skill-percentage">10/10</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 100%;"></div>
+                            </div>
+                            <p class="skill-desc">Object-Oriented Programming (OOP), Spring Security, Spring Boot APIs, JWT, Redis caching, Hibernate.</p>
+                        </div>
+                    </div>
+
+                    <!-- HTML5 / CSS3 -->
+                    <div class="skill-card scroll-reveal" data-rating="10">
+                        <div class="skill-icon-wrapper html-color">
+                            <i class="fa-brands fa-html5"></i>
+                        </div>
+                        <div class="skill-info">
+                            <div class="skill-header">
+                                <h3>HTML5 & CSS3</h3>
+                                <span class="skill-percentage">10/10</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 100%;"></div>
+                            </div>
+                            <p class="skill-desc">Responsive layouts, Flexbox/Grid systems, theme customization, smooth animations, Tailwind CSS, Framer Motion.</p>
+                        </div>
+                    </div>
+
+                    <!-- JavaScript -->
+                    <div class="skill-card scroll-reveal" data-rating="9">
+                        <div class="skill-icon-wrapper js-color">
+                            <i class="fa-brands fa-js"></i>
+                        </div>
+                        <div class="skill-info">
+                            <div class="skill-header">
+                                <h3>JavaScript & React</h3>
+                                <span class="skill-percentage">9/10</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 90%;"></div>
+                            </div>
+                            <p class="skill-desc">Dynamic DOM interactions, React 18 component structure, state management, Vite environment, WebSockets.</p>
+                        </div>
+                    </div>
+
+                    <!-- Python / AI -->
+                    <div class="skill-card scroll-reveal" data-rating="9">
+                        <div class="skill-icon-wrapper js-color" style="color: #3776AB;">
+                            <i class="fa-brands fa-python"></i>
+                        </div>
+                        <div class="skill-info">
+                            <div class="skill-header">
+                                <h3>Python & AI/ML</h3>
+                                <span class="skill-percentage">9/10</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 90%;"></div>
+                            </div>
+                            <p class="skill-desc">Generative AI pipelines, YOLOv8 computer vision models, FastAPI servers, RAG search architectures.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Secondary Skills / Tools / Certificates -->
+                <div class="other-skills scroll-reveal">
+                    <h3>Certifications & Technical Badges</h3>
+                    <div class="tags-container" style="margin-bottom: 2rem;">
+                        <span class="skill-tag"><i class="fa-brands fa-microsoft"></i> 36+ Microsoft Azure Badges</span>
+                        <span class="skill-tag"><i class="fa-brands fa-google"></i> Google Cloud Generative AI</span>
+                        <span class="skill-tag"><i class="fa-solid fa-robot"></i> Anthropic Claude 101</span>
+                        <span class="skill-tag"><i class="fa-solid fa-chart-simple"></i> Deloitte Data Analytics</span>
+                        <span class="skill-tag"><i class="fa-solid fa-circle-check"></i> Postman API Learning 101</span>
+                    </div>
+
+                    <h3>Tools & Infrastructure</h3>
+                    <div class="tags-container">
+                        <span class="skill-tag">Git & GitHub</span>
+                        <span class="skill-tag">Supabase</span>
+                        <span class="skill-tag">MySQL / PostgreSQL</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Vercel</span>
+                        <span class="skill-tag">WebSockets</span>
+                        <span class="skill-tag">Rest APIs</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects-section" id="projects">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <span class="section-subtitle">My Creative Work</span>
+                    <h2 class="section-title">Featured Projects</h2>
+                    <div class="section-underline"></div>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- Project 1: WhatsApp LeadAgent AI -->
+                    <div class="project-card scroll-reveal">
+                        <div class="project-image-placeholder" style="background: linear-gradient(135deg, rgba(37, 211, 102, 0.2) 0%, rgba(18, 140, 126, 0.05) 100%);">
+                            <i class="fa-solid fa-message project-main-icon" style="color: #25D366;"></i>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="proj-tag">FastAPI</span>
+                                <span class="proj-tag">Gemini 3.7 Flash</span>
+                                <span class="proj-tag">SQLite</span>
+                                <span class="proj-tag">Streamlit</span>
+                                <span class="proj-tag">Twilio</span>
+                            </div>
+                            <h3>WhatsApp LeadAgent AI</h3>
+                            <p>An autonomous AI-powered Lead Generation and CRM Agent. Automatically intercepts incoming customer text messages via webhooks, qualifies leads (Name, interest level, budget), logs conversations, and drafts responses instantly.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/Rafiaminhaj/whatsapp-leadagent-ai" class="project-link" target="_blank"><i class="fa-brands fa-github"></i> Source Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: FastAPI GitOps CloudRun -->
+                    <div class="project-card scroll-reveal">
+                        <div class="project-image-placeholder" style="background: linear-gradient(135deg, rgba(74, 144, 226, 0.2) 0%, rgba(80, 227, 194, 0.05) 100%);">
+                            <i class="fa-solid fa-cloud project-main-icon" style="color: #4A90E2;"></i>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="proj-tag">FastAPI</span>
+                                <span class="proj-tag">Docker</span>
+                                <span class="proj-tag">GitHub Actions</span>
+                                <span class="proj-tag">Google Cloud Run</span>
+                                <span class="proj-tag">Pytest</span>
+                            </div>
+                            <h3>FastAPI GitOps Pipeline</h3>
+                            <p>A cloud-native DevOps demonstration showcasing a GitOps-driven CI/CD pipeline. Includes a FastAPI service equipped with custom Prometheus system monitoring, Docker containerization, and serverless Cloud Run deployments.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/Rafiaminhaj/fastapi-gitops-cloudrun" class="project-link" target="_blank"><i class="fa-brands fa-github"></i> Source Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: PawsitiveAI -->
+                    <div class="project-card scroll-reveal">
+                        <div class="project-image-placeholder" style="background: linear-gradient(135deg, rgba(235, 87, 87, 0.2) 0%, rgba(242, 201, 76, 0.05) 100%);">
+                            <i class="fa-solid fa-dog project-main-icon" style="color: #EB5757;"></i>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="proj-tag">FastAPI</span>
+                                <span class="proj-tag">Gemini Flash</span>
+                                <span class="proj-tag">ElevenLabs</span>
+                                <span class="proj-tag">Vanilla JS</span>
+                                <span class="proj-tag">SVG Paths</span>
+                            </div>
+                            <h3>PawsitiveAI Companion</h3>
+                            <p>An interactive multimodal breed classifier and audio-guide companion. Leverages Gemini Vision API to analyze uploaded dog images and synthesizes custom voice-over guides using ElevenLabs (with a local speech synthesis fallback).</p>
+                            <div class="project-links">
+                                <a href="https://github.com/Rafiaminhaj/pawsitive-ai" class="project-link" target="_blank"><i class="fa-brands fa-github"></i> Source Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: Spring Wallet API -->
+                    <div class="project-card scroll-reveal">
+                        <div class="project-image-placeholder" style="background: linear-gradient(135deg, rgba(168, 85, 247, 0.2) 0%, rgba(99, 102, 241, 0.05) 100%);">
+                            <i class="fa-solid fa-wallet project-main-icon" style="color: #A855F7;"></i>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="proj-tag">Java 21</span>
+                                <span class="proj-tag">Spring Boot</span>
+                                <span class="proj-tag">Spring Security</span>
+                                <span class="proj-tag">JWT</span>
+                                <span class="proj-tag">H2 Database</span>
+                            </div>
+                            <h3>Spring Wallet Ledger API</h3>
+                            <p>A high-concurrency secured digital wallet backend ledger. Implements pessimistic database locking (SELECT FOR UPDATE) and lock resource sorting to guarantee transactional concurrency safety and prevent double-spending.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/Rafiaminhaj/spring-wallet-api" class="project-link" target="_blank"><i class="fa-brands fa-github"></i> Source Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section class="certifications-section" id="certifications">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <span class="section-subtitle">My Credentials</span>
+                    <h2 class="section-title">Certifications & Badges</h2>
+                    <div class="section-underline"></div>
+                </div>
+
+                <div class="cert-grid">
+                    <!-- GSSoC 2026 -->
+                    <div class="cert-card scroll-reveal">
+                        <span class="cert-issuer">GirlScript Foundation</span>
+                        <div class="cert-icon"><i class="fa-solid fa-code-branch" style="color: #6366F1;"></i></div>
+                        <h3>GSSoC '26 Open Source Contributor</h3>
+                        <p>Ranked Globally at #547 (Top 2% among thousands of builders) for merging critical backend and AI features in open-source repositories.</p>
+                    </div>
+
+                    <!-- Google Cloud GenAI -->
+                    <div class="cert-card scroll-reveal">
+                        <span class="cert-issuer">Google Cloud</span>
+                        <div class="cert-icon"><i class="fa-brands fa-google" style="color: #4285F4;"></i></div>
+                        <h3>Google Cloud Generative AI</h3>
+                        <p>Certified in Generative AI Fundamentals, Large Language Models (LLMs), Image Generation, and AI Agent development paradigms.</p>
+                    </div>
+
+                    <!-- Azure Badges -->
+                    <div class="cert-card scroll-reveal">
+                        <span class="cert-issuer">Microsoft Azure</span>
+                        <div class="cert-icon"><i class="fa-brands fa-microsoft" style="color: #00A4EF;"></i></div>
+                        <h3>36+ Microsoft Azure Badges</h3>
+                        <p>Completed intensive training paths covering Cloud Infrastructure, Azure Active Directory, serverless integrations, and DevOps pipelines.</p>
+                    </div>
+
+                    <!-- Kaggle ML -->
+                    <div class="cert-card scroll-reveal">
+                        <span class="cert-issuer">Kaggle</span>
+                        <div class="cert-icon"><i class="fa-solid fa-brain" style="color: #20BEFF;"></i></div>
+                        <h3>Kaggle Machine Learning</h3>
+                        <p>Certified in Intro to Machine Learning, Intermediate Machine Learning, and Python Data Analysis tracks.</p>
+                    </div>
+
+                    <!-- Deloitte Analytics -->
+                    <div class="cert-card scroll-reveal">
+                        <span class="cert-issuer">Deloitte</span>
+                        <div class="cert-icon"><i class="fa-solid fa-chart-simple" style="color: #86BC25;"></i></div>
+                        <h3>Data Analytics Virtual Internship</h3>
+                        <p>Acquired industry-level skills in data analytics consulting, parsing telemetry schemas, and presenting structured dashboards.</p>
+                    </div>
+
+                    <!-- Postman API -->
+                    <div class="cert-card scroll-reveal">
+                        <span class="cert-issuer">Postman</span>
+                        <div class="cert-icon"><i class="fa-solid fa-circle-check" style="color: #FF6C37;"></i></div>
+                        <h3>Postman API Learning 101</h3>
+                        <p>Certified in REST API building, validation workflows, environments configurations, and API testing suites automation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="education-section" id="education">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <span class="section-subtitle">Academic Journey</span>
+                    <h2 class="section-title">Education</h2>
+                    <div class="section-underline"></div>
+                </div>
+
+                <div class="timeline">
+                    <!-- College -->
+                    <div class="timeline-item scroll-reveal">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2022 - 2026</div>
+                        <div class="timeline-content">
+                            <h3>Cambridge Institute of Technology (CIT)</h3>
+                            <span class="timeline-subtitle">Bachelor of Technology (B.Tech) — Computer Science & Engineering</span>
+                            <p>Ranchi, Jharkhand, India. Cumulative Grade: 85%. Core coursework: Data Structures and Algorithms, Object-Oriented Programming (Java), Database Management Systems (DBMS), Operating Systems, and AI-enabled systems.</p>
+                        </div>
+                    </div>
+
+                    <!-- Schooling -->
+                    <div class="timeline-item scroll-reveal">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2021 - 2023</div>
+                        <div class="timeline-content">
+                            <h3>Higher Secondary Education (Class XII)</h3>
+                            <span class="timeline-subtitle">Science (PCM)</span>
+                            <p>Ranchi, Jharkhand, India. Focused on Mathematics, Physics, Chemistry, and basic Computer Science concepts. Laid the foundation for logic building and analytic capabilities.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <span class="section-subtitle">Get In Touch</span>
+                    <h2 class="section-title">Contact Me</h2>
+                    <div class="section-underline"></div>
+                </div>
+
+                <div class="contact-grid">
+                    <!-- Info Cards -->
+                    <div class="contact-info scroll-reveal">
+                        <h3>Let's build something amazing together.</h3>
+                        <p>I am actively seeking Software Engineering or Product internships where I can apply my development skills and AI knowledge. Reach out directly!</p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-detail-item">
+                                <div class="detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                                <div class="detail-text">
+                                    <span>Email Me</span>
+                                    <a href="mailto:rafiaminhaj423@gmail.com">rafiaminhaj423@gmail.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-detail-item">
+                                <div class="detail-icon"><i class="fa-solid fa-phone"></i></div>
+                                <div class="detail-text">
+                                    <span>Call Me</span>
+                                    <a href="tel:6206675008">6206675008</a>
+                                </div>
+                            </div>
+
+                            <div class="contact-detail-item">
+                                <div class="detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                                <div class="detail-text">
+                                    <span>Location</span>
+                                    <p>Ranchi, Jharkhand, India</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Social links -->
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/rafia-minhaj-69317b308/" class="social-icon" aria-label="LinkedIn Profile" id="social-linkedin" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://github.com/Rafiaminhaj" class="social-icon" aria-label="GitHub Profile" id="social-github" target="_blank"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="contact-form-wrapper scroll-reveal">
+                        <form class="contact-form" id="contact-form">
+                            <div class="form-group">
+                                <input type="text" id="contact-name" name="name" required placeholder=" ">
+                                <label for="contact-name">Full Name</label>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="email" id="contact-email" name="email" required placeholder=" ">
+                                <label for="contact-email">Email Address</label>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" id="contact-subject" name="subject" required placeholder=" ">
+                                <label for="contact-subject">Subject</label>
+                            </div>
+                            
+                            <div class="form-group">
+                                <textarea id="contact-message" name="message" required placeholder=" " rows="5"></textarea>
+                                <label for="contact-message">Message</label>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-submit" id="contact-submit-btn">
+                                Send Message <i class="fa-solid fa-paper-plane btn-icon"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-container">
+            <p>&copy; 2026 Rafia Minhaj. All rights reserved.</p>
+            <p>Designed with <i class="fa-solid fa-heart footer-heart"></i> for CloudVandana & Solvy Tech Applications</p>
+        </div>
+    </footer>
+
+    <!-- Script file -->
+    <script src="script.js?v=1.1"></script>
+</body>
+</html>
