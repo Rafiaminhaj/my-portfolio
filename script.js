@@ -144,11 +144,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, 1200);
 
-    // Setup Active Nav Link tracking
-    const navObserverCallback = (entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.getAttribute('id');
+    // Setup Active Nav Link tracking on scroll
+    const handleActiveLinkOnScroll = () => {
+        let scrollPosition = window.scrollY + 120; // 120px offset for header
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            const id = section.getAttribute('id');
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
                 navLinks.forEach(link => {
                     link.classList.remove('active');
                     if (link.getAttribute('href') === `#${id}`) {
@@ -158,14 +163,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     };
-    
-    const navObserver = new IntersectionObserver(navObserverCallback, {
-        root: null,
-        threshold: 0.5, // 50% of the section must be visible
-        rootMargin: '-80px 0px -20% 0px' // adjust for header height
-    });
-    
-    sections.forEach(section => navObserver.observe(section));
+    window.addEventListener('scroll', handleActiveLinkOnScroll);
+    handleActiveLinkOnScroll(); // Trigger on load
 
     /* ==========================================================================
        CONTACT FORM SUBMISSION WITH PREMIUM SUCCESS MODAL
