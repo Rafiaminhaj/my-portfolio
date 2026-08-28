@@ -76,19 +76,17 @@
                                 <span class="dot red"></span>
                                 <span class="dot yellow"></span>
                                 <span class="dot green"></span>
-                                <span class="window-title">nexaflow.py</span>
+                                <span class="window-title">lead_agent.py</span>
                             </div>
-                            <pre class="code-editor"><code><span class="keyword">class</span> <span class="class-name">NexaFlowAI</span>:
+                            <pre class="code-editor"><code><span class="keyword">class</span> <span class="class-name">WhatsAppLeadAgent</span>:
     <span class="keyword">def</span> <span class="method">__init__</span>(self):
-        self.creator = <span class="string">"Rafia Minhaj"</span>
-        self.focus = [<span class="string">"AI Automation"</span>, <span class="string">"Backend Eng"</span>]
+        self.model = <span class="string">"Gemini 3.7 Flash"</span>
+        self.db = <span class="string">"sqlite:///leads.db"</span>
         
-    <span class="keyword">def</span> <span class="method">detect_defect</span>(self, frame):
-        <span class="keyword">return</span> self.yolov8_model.<span class="method">predict</span>(frame)
-        
-    <span class="keyword">def</span> <span class="method">auto_trigger_workflow</span>(self, intent):
-        <span class="keyword">if</span> intent == <span class="string">"stripe_refund"</span>:
-            <span class="keyword">return</span> self.stripe.<span class="method">refund</span>()</code></pre>
+    <span class="keyword">def</span> <span class="method">qualify_lead</span>(self, message):
+        intent = self.model.<span class="method">analyze</span>(message)
+        <span class="keyword">if</span> intent.confidence &gt; <span class="number">0.95</span>:
+            <span class="keyword">return</span> self.<span class="method">save_to_crm</span>(intent.lead_details)</code></pre>
                         </div>
                     </div>
                 </div>
@@ -114,7 +112,7 @@
                             I am a pre-final year Computer Science & Engineering student at Cambridge Institute of Technology (CIT), Ranchi. I love translating complex algorithmic pipelines (like YOLOv8 and Retrieval-Augmented Generation) into enterprise-ready web platforms.
                         </p>
                         <p>
-                            As an open-source enthusiast, I achieved a **Global Rank of #547 (Top 2%) in GSSoC 2026** and have actively contributed to major repositories. I thrive on solving concurrency challenges, securing web portals with enterprise JWT, and automating client workflows.
+                            As an open-source enthusiast, I achieved a **Global Rank of #29 (Top 0.8%) in GSSoC 2026** and have actively contributed to major repositories. I thrive on solving concurrency challenges, securing web portals with enterprise JWT, and automating client workflows.
                         </p>
                         <div class="about-cards">
                             <div class="about-card">
@@ -125,7 +123,7 @@
                             <div class="about-card">
                                 <i class="fa-solid fa-code-branch card-icon"></i>
                                 <h4>Open Source</h4>
-                                <p>GSSoC '26 (Global #547)</p>
+                                <p>GSSoC '26 (Global #29)</p>
                             </div>
                             <div class="about-card">
                                 <i class="fa-solid fa-certificate card-icon"></i>
@@ -175,7 +173,7 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-date">2026</div>
                         <div class="timeline-content">
-                            <h3>Open Source Contributor (Global Rank #547)</h3>
+                            <h3>Open Source Contributor (Global Rank #29)</h3>
                             <span class="timeline-subtitle">GirlScript Summer of Code (GSSoC 2026)</span>
                             <p>Active contributor to open-source software repositories, resolving GitHub issues, optimizing package dependencies, and collaborating with developers on multiple full-stack templates.</p>
                         </div>
@@ -351,27 +349,6 @@
                         </div>
                     </div>
 
-                    <!-- Project 3: PawsitiveAI -->
-                    <div class="project-card scroll-reveal">
-                        <div class="project-image-placeholder">
-                            <img src="project_pawsitive.png" alt="PawsitiveAI Companion" class="project-image">
-                        </div>
-                        <div class="project-content">
-                            <div class="project-tags">
-                                <span class="proj-tag">FastAPI</span>
-                                <span class="proj-tag">Gemini Flash</span>
-                                <span class="proj-tag">ElevenLabs</span>
-                                <span class="proj-tag">Vanilla JS</span>
-                                <span class="proj-tag">SVG Paths</span>
-                            </div>
-                            <h3>PawsitiveAI Companion</h3>
-                            <p>An interactive multimodal breed classifier and audio-guide companion. Leverages Gemini Vision API to analyze uploaded dog images and synthesizes custom voice-over guides using ElevenLabs (with a local speech synthesis fallback).</p>
-                            <div class="project-links">
-                                <a href="https://github.com/Rafiaminhaj/pawsitive-ai" class="project-link" target="_blank"><i class="fa-brands fa-github"></i> Source Code</a>
-                            </div>
-                        </div>
-                    </div>
-
                     <!-- Project 4: Spring Wallet API -->
                     <div class="project-card scroll-reveal">
                         <div class="project-image-placeholder">
@@ -411,7 +388,7 @@
                         <span class="cert-issuer">GirlScript Foundation</span>
                         <div class="cert-icon"><i class="fa-solid fa-code-branch" style="color: #6366F1;"></i></div>
                         <h3>GSSoC '26 Open Source Contributor</h3>
-                        <p>Ranked Globally at #547 (Top 2% among thousands of builders) for merging critical backend and AI features in open-source repositories.</p>
+                        <p>Ranked Globally at #29 (Top 0.8% among thousands of builders) for merging critical backend and AI features in open-source repositories.</p>
                     </div>
 
                     <!-- Google Cloud GenAI -->
