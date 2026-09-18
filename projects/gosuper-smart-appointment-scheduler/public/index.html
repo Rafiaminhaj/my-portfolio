@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GoSuper — Smart Appointment Scheduler</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root {
+      --bg-primary: #0f172a;
+      --card-bg: #1e293b;
+      --accent: #3b82f6;
+      --accent-hover: #2563eb;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #334155;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      padding: 24px;
+      min-height: 100vh;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto 24px;
+      background: var(--card-bg);
+      padding: 20px 28px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+    }
+
+    .brand h1 {
+      font-size: 22px;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .badge {
+      background: rgba(59, 130, 246, 0.15);
+      color: var(--accent);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 13px;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+
+    .main-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+    }
+
+    .panel {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .panel-title {
+      font-size: 18px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .date-picker-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    input[type="date"], input[type="text"], input[type="email"], input[type="tel"], select, textarea {
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+      outline: none;
+      width: 100%;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--accent);
+    }
+
+    .slots-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 14px;
+    }
+
+    .slot-card {
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .slot-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .slot-card.full {
+      opacity: 0.6;
+      cursor: not-allowed;
+      border-color: rgba(239, 68, 68, 0.4);
+    }
+
+    .slot-time {
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .capacity-bar {
+      height: 6px;
+      background: var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 8px 0;
+    }
+
+    .capacity-fill {
+      height: 100%;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    .slot-card.full .capacity-fill {
+      background: var(--danger);
+    }
+
+    .slot-info {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .status-pill {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+
+    .status-available { background: rgba(16, 185, 129, 0.15); color: var(--success); }
+    .status-full { background: rgba(239, 68, 68, 0.15); color: var(--danger); }
+
+    .btn {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+
+    .btn:hover { background: var(--accent-hover); }
+    .btn-danger { background: var(--danger); }
+    .btn-danger:hover { background: #dc2626; }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .appointments-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .appointment-item {
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .apt-header {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .apt-details {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(4px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.2s ease;
+    }
+
+    .modal-overlay.active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .modal {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      width: 100%;
+      max-width: 480px;
+      padding: 24px;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .main-container { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="brand">
+      <h1><i class="fa-solid fa-calendar-check" style="color: var(--accent);"></i> GoSuper Smart Appointment Scheduler</h1>
+      <p>Practical Full-Stack Assessment | 9:00 AM - 5:00 PM Slots (Max 3 Bookings / Slot)</p>
+    </div>
+    <div class="badge"><i class="fa-solid fa-shield-halved"></i> Live SQLite Persistence</div>
+  </header>
+
+  <div class="main-container">
+    
+    <!-- LEFT PANEL: Slot Availability Grid -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title"><i class="fa-regular fa-clock" style="color: var(--accent);"></i> Available Time Slots</div>
+        <div class="date-picker-bar">
+          <label style="font-size: 13px; color: var(--text-muted);">Date:</label>
+          <input type="date" id="selectedDate" onchange="loadSlots()" />
+        </div>
+      </div>
+
+      <div class="slots-grid" id="slotsContainer">
+        <!-- Slots will be rendered here dynamically -->
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL: Bookings & Management -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title"><i class="fa-solid fa-list-check" style="color: var(--success);"></i> Bookings</div>
+        <span id="bookingCountBadge" style="font-size: 12px; color: var(--text-muted);">0 Booked</span>
+      </div>
+
+      <div class="appointments-list" id="appointmentsContainer">
+        <!-- Appointments will be rendered here -->
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BOOKING MODAL -->
+  <div class="modal-overlay" id="bookingModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="modalTitle"><i class="fa-solid fa-calendar-plus" style="color: var(--accent);"></i> New Appointment</h3>
+        <button class="close-btn" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <form id="appointmentForm" onsubmit="handleFormSubmit(event)">
+        <input type="hidden" id="appointmentId" />
+        
+        <div class="form-group">
+          <label>Customer Full Name *</label>
+          <input type="text" id="custName" required placeholder="e.g. Rafia Minhaj" />
+        </div>
+
+        <div class="form-group">
+          <label>Email Address *</label>
+          <input type="email" id="custEmail" required placeholder="rafiaminhaj423@gmail.com" />
+        </div>
+
+        <div class="form-group">
+          <label>Phone Number *</label>
+          <input type="tel" id="custPhone" required placeholder="+91 62066 75008" />
+        </div>
+
+        <div class="form-group">
+          <label>Booking Date *</label>
+          <input type="date" id="modalDate" readonly />
+        </div>
+
+        <div class="form-group">
+          <label>Time Slot *</label>
+          <input type="text" id="modalSlot" readonly />
+        </div>
+
+        <div class="form-group">
+          <label>Notes / Service Requirements</label>
+          <textarea id="custNotes" rows="3" placeholder="Additional notes or specifications..."></textarea>
+        </div>
+
+        <div style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px;">
+          <button type="button" class="btn" style="background: var(--border);" onclick="closeModal()">Cancel</button>
+          <button type="submit" class="btn"><i class="fa-solid fa-check"></i> Confirm Booking</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const API_BASE = '/api';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById('selectedDate').value = today;
+      loadSlots();
+      loadAppointments();
+    });
+
+    async function loadSlots() {
+      const date = document.getElementById('selectedDate').value;
+      const container = document.getElementById('slotsContainer');
+      container.innerHTML = '<div style="color: var(--text-muted); grid-column: 1/-1;">Loading slots...</div>';
+
+      try {
+        const res = await fetch(`${API_BASE}/slots?date=${date}`);
+        const data = await res.json();
+        
+        container.innerHTML = '';
+        data.slots.forEach(s => {
+          const fillPercent = (s.booked / s.maxCapacity) * 100;
+          const isFull = s.booked >= s.maxCapacity;
+
+          const card = document.createElement('div');
+          card.className = `slot-card ${isFull ? 'full' : ''}`;
+          card.onclick = () => {
+            if (!isFull) openBookingModal(date, s.slot);
+          };
+
+          card.innerHTML = `
+            <div class="slot-time">${s.slot}</div>
+            <div class="capacity-bar">
+              <div class="capacity-fill" style="width: ${fillPercent}%;"></div>
+            </div>
+            <div class="slot-info">
+              <span>${s.booked}/${s.maxCapacity} Booked</span>
+              <span class="status-pill ${isFull ? 'status-full' : 'status-available'}">
+                ${isFull ? 'FULL' : s.spotsRemaining + ' Left'}
+              </span>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      } catch (err) {
+        container.innerHTML = `<div style="color: var(--danger); grid-column: 1/-1;">Failed to load slots.</div>`;
+      }
+    }
+
+    async function loadAppointments() {
+      const date = document.getElementById('selectedDate').value;
+      const container = document.getElementById('appointmentsContainer');
+      const badge = document.getElementById('bookingCountBadge');
+
+      try {
+        const res = await fetch(`${API_BASE}/appointments?date=${date}`);
+        const data = await res.json();
+
+        badge.textContent = `${data.count} Booked`;
+        container.innerHTML = '';
+
+        if (data.count === 0) {
+          container.innerHTML = '<div style="color: var(--text-muted); font-size: 13px; text-align: center; padding: 20px;">No appointments for this date yet.</div>';
+          return;
+        }
+
+        data.appointments.forEach(apt => {
+          const item = document.createElement('div');
+          item.className = 'appointment-item';
+          item.innerHTML = `
+            <div class="apt-header">
+              <span>${apt.customer_name}</span>
+              <span style="color: var(--accent); font-size: 13px;">${apt.time_slot}</span>
+            </div>
+            <div class="apt-details">
+              <div><i class="fa-solid fa-envelope"></i> ${apt.customer_email} | <i class="fa-solid fa-phone"></i> ${apt.customer_phone}</div>
+              ${apt.service_notes ? `<div style="margin-top: 4px; font-style: italic;">"${apt.service_notes}"</div>` : ''}
+              <div style="margin-top: 10px; display: flex; gap: 8px;">
+                <button class="btn btn-danger" style="padding: 4px 10px; font-size: 12px;" onclick="cancelAppointment(${apt.id})">
+                  <i class="fa-solid fa-trash"></i> Cancel
+                </button>
+              </div>
+            </div>
+          `;
+          container.appendChild(item);
+        });
+      } catch (err) {
+        container.innerHTML = '<div style="color: var(--danger);">Failed to load bookings.</div>';
+      }
+    }
+
+    function openBookingModal(date, slot) {
+      document.getElementById('modalDate').value = date;
+      document.getElementById('modalSlot').value = slot;
+      document.getElementById('appointmentId').value = '';
+      document.getElementById('appointmentForm').reset();
+      document.getElementById('modalDate').value = date;
+      document.getElementById('modalSlot').value = slot;
+      document.getElementById('bookingModal').classList.add('active');
+    }
+
+    function closeModal() {
+      document.getElementById('bookingModal').classList.remove('active');
+    }
+
+    async function handleFormSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('custName').value;
+      const email = document.getElementById('custEmail').value;
+      const phone = document.getElementById('custPhone').value;
+      const date = document.getElementById('modalDate').value;
+      const slot = document.getElementById('modalSlot').value;
+      const notes = document.getElementById('custNotes').value;
+
+      try {
+        const res = await fetch(`${API_BASE}/appointments`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            customer_name: name,
+            customer_email: email,
+            customer_phone: phone,
+            booking_date: date,
+            time_slot: slot,
+            service_notes: notes
+          })
+        });
+
+        const data = await res.json();
+        if (!res.ok) {
+          alert(`Error: ${data.message || data.error}`);
+          return;
+        }
+
+        closeModal();
+        loadSlots();
+        loadAppointments();
+      } catch (err) {
+        alert('Failed to submit appointment.');
+      }
+    }
+
+    async function cancelAppointment(id) {
+      if (!confirm('Are you sure you want to cancel this appointment?')) return;
+
+      try {
+        const res = await fetch(`${API_BASE}/appointments/${id}`, { method: 'DELETE' });
+        if (res.ok) {
+          loadSlots();
+          loadAppointments();
+        } else {
+          alert('Failed to cancel appointment.');
+        }
+      } catch (err) {
+        alert('Error cancelling appointment.');
+      }
+    }
+  </script>
+</body>
+</html>

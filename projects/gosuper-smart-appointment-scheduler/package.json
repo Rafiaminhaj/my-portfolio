@@ -1,0 +1,17 @@
+{
+  "name": "gosuper-smart-appointment-scheduler",
+  "version": "1.0.0",
+  "description": "Smart Appointment Scheduler - GoSuper Edtech Candidate Practical Assessment",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build": "echo 'No build step required for backend'"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {}
+}
